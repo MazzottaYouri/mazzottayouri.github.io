@@ -196,38 +196,34 @@ document.addEventListener('DOMContentLoaded', () => {
             relevance: "Fondamentale per lo studio delle mutazioni puntiformi missenso del DNA che si traducono in un cambio di amminoacido nella catena proteica."
         },
         ana_immunofluorescence: {
-            name: "----",
-            pdb: "----à",
+            name: "Anticorpi Anti-Nucleo (ANA)",
             media: [
-                { type: 'image', src: 'assets/progetto3/1hpx_image1.png' },
-                { type: 'image', src: 'assets/progetto3/1hvl-1hpx_residues_48.png' },
-                { type: 'image', src: 'assets/progetto3/1hpx_mutazione_balland_stick.png' },
-                { type: 'image', src: 'assets/progetto3/Ballandstick_A48G.png'},
-                { type: 'image', src: 'assets/progetto3/Distanze_tra_Atomi_ballandstick.png' },
-                { type: 'image', src: 'assets/progetto3/stick_A48G.png' },
-                { type: 'video', src: 'assets/progetto3/1hvl-1hpx_bfactor_movie1.mp4' },
-                { type: 'video', src: 'assets/progetto3/mutazione_1hpx_ALA48GLY.mp4' }
+                { type: 'image', src: 'assets/foto_tirocinio/ana_pos_pz.jpg' },
+                { type: 'image', src: 'assets/foto_tirocinio/centromerico.jpg' },
+                { type: 'image', src: 'assets/foto_tirocinio/dfs_70.jpg' },
+                { type: 'image', src: 'assets/foto_tirocinio/nuc._dots.jpg' },
+                { type: 'image', src: 'assets/foto_tirocinio/omogeneo.jpg' },
+                { type: 'image', src: 'assets/foto_tirocinio/speckled.jpg'},
+                
+               
             ], 
-            description: "---",
-            techniques: "---",
-            relevance: "----"
+            description: "Immagine rappresentativa dell'analisi di immunofluorescenza indiretta (IFI) per la rilevazione di Anticorpi Anti-Nucleo (ANA). Questa tecnica è fondamentale nella diagnosi di malattie autoimmuni sistemiche. L'immagine mostra la fluorescenza caratteristica dei pattern nucleari riconosciuti dagli autoanticorpi presenti nel siero del paziente.",
+            techniques: "Immunofluorescenza Indiretta",
+            relevance: "Indagini per la ricerca di malattie autoimmuni"
         },
         asma_immunofluorescence: {
-            name: "----",
-            pdb: "----",
+            name: "Anticorpi Anti-Muscolo Liscio",
             media: [
-                { type: 'image', src: 'assets/progetto3/1hpx_image1.png' },
-                { type: 'image', src: 'assets/progetto3/1hvl-1hpx_residues_48.png' },
-                { type: 'image', src: 'assets/progetto3/1hpx_mutazione_balland_stick.png' },
-                { type: 'image', src: 'assets/progetto3/Ballandstick_A48G.png'},
-                { type: 'image', src: 'assets/progetto3/Distanze_tra_Atomi_ballandstick.png' },
-                { type: 'image', src: 'assets/progetto3/stick_A48G.png' },
-                { type: 'video', src: 'assets/progetto3/1hvl-1hpx_bfactor_movie1.mp4' },
-                { type: 'video', src: 'assets/progetto3/mutazione_1hpx_ALA48GLY.mp4' }
+                { type: 'image', src: 'assets/foto_tirocinio/fegato.jpg' },
+                { type: 'image', src: 'assets/foto_tirocinio/muscolaris.jpg' },
+                { type: 'image', src: 'assets/foto_tirocinio/tessuto_asma-1.jpg' },
+                { type: 'image', src: 'assets/foto_tirocinio/tessuto_asma-2.jpg'},
+                { type: 'image', src: 'assets/foto_tirocinio/tessuto_asma-3.jpg' },
+                
             ], 
-            description: "---",
-            techniques: "---",
-            relevance: "----"
+            description: "Immagine IFI che illustra la rilevazione di Anticorpi Anti Muscolo Liscio (ASMA) e Anticorpi Anti Mitocondrio (AMA), marcatori importanti per la diagnosi di epatiti autoimmuni come la cirrosi biliare primitiva, e altre patologie autoimmuni. Si possono osservare i pattern di fluorescenza specifici sul substrato cellulare che indicano la presenza di questi autoanticorpi.",
+            techniques: "Immunofluorescenza Indiretta",
+            relevance: "Indagini per la ricerca di malattie autoimmuni"
         }
     };
 
