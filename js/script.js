@@ -179,12 +179,21 @@ document.addEventListener('DOMContentLoaded', () => {
             relevance: "Fondamentale per lo studio delle interazioni Enzima-Inibitore."
         },
         ana: {
-            name: "Antigeni Nucleari (ANA)",
-            pdb: "1AOI",
-            imageSrc: "assets/images/placeholder_hemoglobin.jpg", 
-            description: "Proteine nucleari coinvolte nei test ANA per diagnosi autoimmuni. Strutture target degli autoanticorpi nelle malattie sistemiche.",
-            techniques: "Immunofluorescenza indiretta su cellule HEp-2",
-            relevance: "Screening primario per malattie autoimmuni sistemiche come lupus, sclerodermia e sindrome di Sjögren."
+            name: "HIV-1 Proteasi",
+            pdb: "1hpx e 1hvl",
+            media: [
+                { type: 'image', src: 'assets/progetto3/1hpx_image1.png' },
+                { type: 'image', src: 'assets/progetto3/1hvl-1hpx_residues_48.png' },
+                { type: 'image', src: 'assets/progetto3/1hpx_mutazione_balland_stick.png' },
+                { type: 'image', src: 'assets/progetto3/Ballandstick_A48G.png'},
+                { type: 'image', src: 'assets/progetto3/Distanze_tra_Atomi_ballandstick.png' },
+                { type: 'image', src: 'assets/progetto3/stick_A48G.png' },
+                { type: 'video', src: 'assets/progetto3/1hvl-1hpx_bfactor_movie1.mp4' },
+                { type: 'video', src: 'assets/progetto3/mutazione_1hpx_ALA48GLY.mp4' }
+            ], 
+            description: "Struttura dell'HIV-1 Proteasi comparata ad una sua versione mutata (ALA48GLY), con PDB ID differnte per il richiamo su ChimeraX.",
+            techniques: "Manipolazione 3D tramite ChimeraX",
+            relevance: "Fondamentale per lo studio delle mutazioni puntiformi missenso del DNA che si traducono in un cambio di amminoacido nella catena proteica."
         }
     };
 
