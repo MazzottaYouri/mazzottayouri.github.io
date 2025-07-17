@@ -53,14 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // --- Effetto parallax leggero per l'hero ---
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const hero = document.getElementById('hero');
-        if (hero) {
-            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-        }
-    });
 
     // --- Evidenziazione del link attivo nella navigazione ---
     const sections = document.querySelectorAll('section');
