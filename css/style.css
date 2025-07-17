@@ -646,4 +646,37 @@ nav ul li a.active { /* Active link style */
         padding: 3px 8px;
         font-size: 1rem;
     }
+    /* Stili specifici per la card ChimeraX Work */
+.chimera-work-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem; /* Riduci il padding se vuoi renderlo ancora più piccolo */
+    min-height: unset; /* Rimuovi eventuali altezze minime ereditate */
+}
+
+.chimera-work-card h3 {
+    text-align: center;
+    margin-bottom: 1.5rem; /* Spazio tra testo e pulsante */
+}
+
+.chimera-work-card .button-small {
+    background-color: #667eea;
+    color: #fff;
+    padding: 0.7rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem; /* Rendi il testo del pulsante più piccolo */
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none; /* Assicurati che non ci sia sottolineatura */
+    display: inline-block; /* Permetti padding e margini */
+}
+
+.chimera-work-card .button-small:hover {
+    background-color: #4c51bf;
+    transform: translateY(-2px);
+}
 }
