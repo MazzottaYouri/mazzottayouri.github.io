@@ -163,12 +163,20 @@ document.addEventListener('DOMContentLoaded', () => {
             relevance: "Fondamentale per lo studio della resistenza ai farmaci antiretrovirali."
         },
         hba1c: {
-            name: "Emoglobina Glicata (HbA1c)",
-            pdb: "1HHO",
-            imageSrc: "assets/images/placeholder_hemoglobin.jpg", 
-            description: "Struttura dell'emoglobina umana con modificazioni glicemiche tipiche del diabete. Le modificazioni post-traduzionali sono evidenti nella struttura.",
-            techniques: "Elettroforesi, Dosaggio immunoenzimatico",
-            relevance: "Biomarcatore essenziale per il monitoraggio a lungo termine del controllo glicemico nei pazienti diabetici."
+            name: "Modello HIV-1 Proteasi interazione con Inibitore",
+            pdb: "1hpv",
+            media: [
+                { type: 'image', src: 'assets/progetto2/1hpv-HIV-1+Amprenavir_image1.png' },
+                { type: 'image', src: 'assets/progetto2/1hpv-HIV-1+Amprenavir_image2.png'},
+                { type: 'image', src: 'assets/progetto2/1hpv-HIV-1+Amprenavir_image3.png' },
+                { type: 'image', src: 'assets/progetto2/1hpv-HIV-1+Amprenavir_image4.png' },
+                { type: 'video', src: 'assets/progetto2/1hpv-HIV-1-PROTEASI+Amprenavir_movie1.mp4' },
+                { type: 'video', src: 'assets/progetto2/1hpv-HIV-1-PROTEASI+Amprenavir_movie2.mp4' },
+                { type: 'video', src: 'assets/progetto2/1hpv-HIV-1-PROTEASI+Amprenavir_movie3.mp4' }
+            ], 
+            description: "Struttura della HIV-1 Proteasi con Amprenavir (Inibitore competitivo) farmaco antiretrovirale che inibisce questo enzima necessario alla replicazione del virus, formando un complesso enzima-inibitore (E-I)",
+            techniques: "Manipolazione 3D tramite ChimeraX",
+            relevance: "Fondamentale per lo studio delle interazioni Enzima-Inibitore."
         },
         ana: {
             name: "Antigeni Nucleari (ANA)",
