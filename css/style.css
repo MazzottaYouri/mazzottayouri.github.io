@@ -646,37 +646,49 @@ nav ul li a.active { /* Active link style */
         padding: 3px 8px;
         font-size: 1rem;
     }
-    /* Stili specifici per la card ChimeraX Work */
+   /* Stili specifici per la card ChimeraX Work */
 .chimera-work-card {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2rem; /* Riduci il padding se vuoi renderlo ancora più piccolo */
-    min-height: unset; /* Rimuovi eventuali altezze minime ereditate */
+    padding: 2rem;
+    min-height: unset;
+    cursor: pointer;
+    text-align: center;
+    background-color: #007bff; /* Sfondo blu per la card */
+    border-radius: 10px; /* Aggiungi un po' di arrotondamento ai bordi */
+    width: 80%; /* Rendi la card più stretta (regola il valore a seconda delle tue esigenze) */
+    max-width: 400px; /* Limita la larghezza massima per schermi più grandi */
+    margin: 0 auto; /* Centra la card orizzontalmente */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Aggiungi una leggera ombra per profondità */
+}
+
+.chimera-link-block {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
 .chimera-work-card h3 {
     text-align: center;
-    margin-bottom: 1.5rem; /* Spazio tra testo e pulsante */
+    margin-bottom: 1.5rem;
+    color: #000; /* Colore nero per la scritta */
 }
 
-.chimera-work-card .button-small {
-    background-color: #667eea;
-    color: #fff;
-    padding: 0.7rem 1.2rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 0.9rem; /* Rendi il testo del pulsante più piccolo */
-    font-weight: 600;
+.button-simulated {
+    background-color: #4CAF50; /* Puoi cambiare questo colore se vuoi che la barretta sia diversa dal blu di sfondo */
+    width: 50px;
+    height: 8px;
+    border-radius: 4px;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    text-decoration: none; /* Assicurati che non ci sia sottolineatura */
-    display: inline-block; /* Permetti padding e margini */
 }
 
-.chimera-work-card .button-small:hover {
-    background-color: #4c51bf;
+.chimera-link-block:hover .button-simulated {
+    background-color: #45a049; /* Colore più scuro al passaggio del mouse per la barretta */
     transform: translateY(-2px);
 }
 }
