@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youri Mazzotta - Portfolio ChimeraX</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <h1>Youri Mazzotta</h1>
+                <p>Dottore in Scienze Biologiche</p>
+            </div>
+            <ul>
+                <li><a href="#about">Chi Sono</a></li>
+                <li><a href="gallery.html">Il mio lavoro in ChimeraX</a></li> 
+                <li><a href="#experience">Esperienza</a></li>
+                <li><a href="gallery.html">Galleria Proteine</a></li> 
+                <li><a href="#contact">Contatti</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <h2>Visualizzazione strutturale con ChimeraX</h2>
+                <p>Familiarità con ChimeraX e manipolazione di modelli strutturali 3D</p>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2>Chi Sono</h2>
+                <div class="about-container">
+                    <img src="https://via.placeholder.com/250x250/667eea/ffffff?text=YM" alt="Youri Mazzotta" class="profile-pic">
+                    <div class="about-content">
+                        <h3>Dottore in Scienze Biologiche</h3>
+                        <p>
+                            Sono Youri Mazzotta, nato il 19 aprile 1998. Ho conseguito la laurea in Scienze Biologiche presso l'Università degli Studi del Piemonte Orientale (2023-2024) e ho sviluppato una specializzazione specifica nell'immunologia diagnostica attraverso il mio tirocinio curricolare presso l'ASST Grande Ospedale Metropolitano Niguarda.
+                        </p>
+                        <p>
+                            Durante la mia esperienza ospedaliera, ho acquisito competenze approfondite nella ricerca di autoanticorpi per la rilevazione di patologie autoimmuni, utilizzando metodologie avanzate di immunofluorescenza indiretta, immunoblot e dosaggio immunoenzimatico.
+                        </p>
+                        
+                        <div class="skills-grid">
+                            <div class="skill-item">Problem Solving</div>
+                            <div class="skill-item">Team Working</div>
+                            <div class="skill-item">Affidabilità</div>
+                            <div class="skill-item">Flessibilità</div>
+                            <div class="skill-item">Metodicità</div>
+                            <div class="skill-item">Adattabilità</div>
+                            <div class="skill-item">Abilità Mnemoniche</div>
+                            <div class="skill-item">Socievolezza</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="chimera-work">
+            <div class="container">
+                <h2>Il mio lavoro in ChimeraX</h2>
+                <div class="protein-grid">
+                    <div class="protein-card">
+                        <h3>Vedi foto e video del mio lavoro con ChimeraX</h3>
+                        <a href="gallery.html" style="text-decoration: none; color: inherit;">
+                            <div class="protein-viewer">
+                                <img src="assets/1hiv-1hvr_image1.png" alt="Galleria ChimeraX" class="card-thumbnail">
+                                <div class="click-overlay">Clicca per visualizzare la galleria</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <div class="container">
+                <h2>Esperienza Professionale</h2>
+                
+                <div class="experience-card">
+                    <h3>Tirocinio Curricolare - Laboratorio di Immunologia Diagnostica</h3>
+                    <div class="period">2024-2025</div>
+                    <div class="company">ASST Grande Ospedale Metropolitano Niguarda</div>
+                    <p>
+                        Tirocinio presso il laboratorio di analisi chimico-cliniche, settore immunologia diagnostica. 
+                        Attività principali:
+                    </p>
+                    <ul style="margin-left: 2rem; margin-top: 1rem;">
+                        <li>Ricerca di autoanticorpi per la rilevazione di patologie autoimmuni</li>
+                        <li>Metodologie di immunofluorescenza indiretta</li>
+                        <li>Tecniche di immunoblot</li>
+                        <li>Dosaggio immunoenzimatico</li>
+                        <li>Elettroforesi per analisi proteiche</li>
+                        <li>Analisi emoglobina glicata HbA1c per controllo pazienti diabetici</li>
+                    </ul>
+                    <p style="margin-top: 1rem;">
+                        <strong>Referente:</strong> Direttore Michele Senatore del settore di immunologia diagnostica
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>Contatti</h2>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Informazioni di Contatto</h3>
+                        <div class="contact-item">
+                            <span>📧</span>
+                            <span>mazzottayouri@gmail.com</span>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <span>🚗</span>
+                            <span>Automunito</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>🗣️</span>
+                            <span>Italiano (Madrelingua), Inglese (B2)</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3>Invia un Messaggio</h3>
+                        <form id="contact-form">
+                            <input type="text" name="name" placeholder="Il tuo nome" required>
+                            <input type="email" name="email" placeholder="La tua email" required>
+                            <textarea name="message" placeholder="Il tuo messaggio" rows="5" required></textarea>
+                            <button type="submit">Invia Messaggio</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="dynamic-modal" class="modal-overlay">
+        <div class="modal-content">
+            </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
