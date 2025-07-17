@@ -150,7 +150,14 @@ document.addEventListener('DOMContentLoaded', () => {
         hiv_protease: {
             name: "Modello HIV-1 Proteasi",
             pdb: "1hiv",
-            imageSrc: "assets/1hiv-1hvr_image1.png", 
+            // Ho aggiornato questa sezione per includere tutti i media (immagini e video)
+            media: [
+                { type: 'image', src: 'assets/1hiv-1hvr_image1.png' },
+                { type: 'image', src: 'assets/1hiv-1hvr_image2.png' },
+                { type: 'image', src: 'assets/1hiv-1hvr_image3.png' },
+                { type: 'image', src: 'assets/1hiv-1hvr_label_image4.png' },
+                { type: 'video', src: 'assets/1hiv-1hvr_movie1.mp4' }
+            ],
             description: "Struttura dell'HIV-1 Proteasi comparata con una sua versione mutata. Ottimo per osservare l'asimmetria in Angstrom, e osservare come una mutazione puntiforme missenso si traduca in un cambio di amminoacido.",
             techniques: "Manipolazione 3D tramite ChimeraX",
             relevance: "Fondamentale per lo studio della resistenza ai farmaci antiretrovirali."
@@ -173,7 +180,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // --- Funzione per la visualizzazione delle proteine nel modal (solo testo e immagine principale) ---
+    let currentMediaIndex = 0; // Variabile globale per tracciare l'indice del media corrente
+
+    // --- Funzione per la visualizzazione delle proteine nel modal (galleria) ---
     window.showProteinInfo = function(proteinType) { 
         const protein = proteinData[proteinType];
         if (!protein) { 
@@ -181,25 +190,147 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const content = `
-            <div style="text-align: center; margin-bottom: 1.5rem;">
+        // Resetta l'indice del media all'apertura del modal
+        currentMediaIndex = 0; 
+
+        // Genera il contenuto HTML iniziale per la galleria
+        const galleryContentHtml = `
+            <div class="gallery-modal-header" style="text-align: center; margin-bottom: 1rem;">
                 <h3 style="color: #5b76ecff; margin-bottom: 0.5rem; font-size: 1.5rem;">${protein.name}</h3>
                 <p style="color: #666; font-weight: 600;">PDB ID: ${protein.pdb}</p>
             </div>
-            <img src="${protein.imageSrc}" alt="${protein.name}" style="width: 100%; height: auto; border-radius: 10px; margin-bottom: 1.5rem;">
-            <div style="margin-bottom: 1.5rem;">
+            <div class="media-viewer-container">
+                <button class="modal-nav-arrow left-arrow" aria-label="Media precedente">&#10094;</button>
+                <div class="current-media-display">
+                    </div>
+                <button class="modal-nav-arrow right-arrow" aria-label="Media successiva">&#10095;</button>
+            </div>
+            <div class="gallery-description" style="margin-top: 1.5rem;">
                 <h4 style="color: #2b3547ff; margin-bottom: 0.5rem;">Descrizione:</h4>
                 <p style="color: #4a5568; line-height: 1.6;">${protein.description}</p>
-            </div>
-            <div style="margin-bottom: 1.5rem;">
                 <h4 style="color: #2d3748; margin-bottom: 0.5rem;">Tecniche Utilizzate:</h4>
                 <p style="color: #4a5568; line-height: 1.6;">${protein.techniques}</p>
-            </div>
-            <div style="margin-bottom: 1.5rem;">
                 <h4 style="color: #2d3748; margin-bottom: 0.5rem;">Rilevanza Clinica:</h4>
                 <p style="color: #4a5568; line-height: 1.6;">${protein.relevance}</p>
             </div>
         `;
-        openModal(content);
+        
+        openModal(galleryContentHtml);
+
+        // Aggiungi listener per la navigazione
+        const leftArrow = modalContentContainer.querySelector('.left-arrow');
+        const rightArrow = modalContentContainer.querySelector('.right-arrow');
+        const currentMediaDisplay = modalContentContainer.querySelector('.current-media-display');
+
+        if (leftArrow && rightArrow && currentMediaDisplay) {
+            leftArrow.addEventListener('click', () => {
+                currentMediaIndex = (currentMediaIndex === 0) ? protein.media.length - 1 : currentMediaIndex - 1;
+                updateModalMedia(protein, currentMediaIndex, currentMediaDisplay);
+            });
+            rightArrow.addEventListener('click', () => {
+                currentMediaIndex = (currentMediaIndex === protein.media.length - 1) ? 0 : currentMediaIndex + 1;
+                updateModalMedia(protein, currentMediaIndex, currentMediaDisplay);
+            });
+
+            // Gestione dei click sull'area del media
+            currentMediaDisplay.addEventListener('click', (e) => {
+                const mediaElement = currentMediaDisplay.querySelector('img, video');
+                if (!mediaElement) return;
+
+                const mediaRect = mediaElement.getBoundingClientRect();
+                const clickX = e.clientX - mediaRect.left;
+
+                // Clicca al centro per ingrandire/avviare video
+                if (clickX > mediaRect.width * 0.2 && clickX < mediaRect.width * 0.8) {
+                    if (mediaElement.tagName === 'IMG') {
+                        mediaElement.classList.toggle('enlarged'); // Ingrandisce l'immagine
+                        modalContentContainer.classList.toggle('image-enlarged'); // Per permettere overflow per immagine ingrandita
+                    } else if (mediaElement.tagName === 'VIDEO') {
+                        if (mediaElement.paused) {
+                            mediaElement.play();
+                        } else {
+                            mediaElement.pause();
+                        }
+                    }
+                } else if (clickX <= mediaRect.width * 0.2) { // Clicca a sinistra per precedente
+                    leftArrow.click();
+                } else if (clickX >= mediaRect.width * 0.8) { // Clicca a destra per successivo
+                    rightArrow.click();
+                }
+            });
+
+            // Carica il primo media
+            updateModalMedia(protein, currentMediaIndex, currentMediaDisplay);
+        }
+    }
+
+    // --- Funzione per aggiornare il media visualizzato nel modal ---
+    function updateModalMedia(protein, index, containerElement) {
+        containerElement.innerHTML = ''; // Pulisce il contenuto precedente
+        const media = protein.media[index];
+
+        if (media.type === 'image') {
+            const img = document.createElement('img');
+            img.src = media.src;
+            img.alt = protein.name;
+            img.classList.add('modal-media');
+            containerElement.appendChild(img);
+        } else if (media.type === 'video') {
+            const video = document.createElement('video');
+            video.src = media.src;
+            video.alt = protein.name;
+            video.classList.add('modal-media');
+            video.controls = false; // Controlli personalizzati
+            video.loop = true; // Video in loop
+            video.muted = true; // Muto di default per autoplay
+            video.playsInline = true; // Per riproduzione su iOS
+            // Aggiungi un div per i controlli custom video
+            const videoControls = document.createElement('div');
+            videoControls.classList.add('video-controls');
+
+            // Icona Play/Pause (visibile al centro)
+            const playPauseIcon = document.createElement('div');
+            playPauseIcon.classList.add('play-pause-overlay');
+            playPauseIcon.innerHTML = '&#9654;'; // Triangolo "play"
+            video.addEventListener('play', () => playPauseIcon.style.display = 'none');
+            video.addEventListener('pause', () => playPauseIcon.style.display = 'flex');
+            containerElement.appendChild(playPauseIcon);
+            
+            // Bottone Fullscreen
+            const fullscreenButton = document.createElement('button');
+            fullscreenButton.classList.add('video-fullscreen-btn');
+            fullscreenButton.innerHTML = '&#x26F6;'; // Icona fullscreen
+            fullscreenButton.title = 'Toggle Fullscreen';
+            fullscreenButton.addEventListener('click', (e) => {
+                e.stopPropagation(); // Evita che il click si propaghi al container
+                if (video.requestFullscreen) {
+                    if (!document.fullscreenElement) {
+                        video.requestFullscreen();
+                    } else {
+                        document.exitFullscreen();
+                    }
+                } else if (video.webkitEnterFullscreen) { // Safari
+                    video.webkitEnterFullscreen();
+                } else if (video.msRequestFullscreen) { // IE11
+                    video.msRequestFullscreen();
+                } else {
+                    // Fallback per browser senza supporto nativo o toggle CSS
+                    video.classList.toggle('modal-video-fullscreen');
+                    containerElement.classList.toggle('modal-video-container-fullscreen');
+                    modalContentContainer.classList.toggle('modal-video-content-fullscreen');
+                }
+            });
+            videoControls.appendChild(fullscreenButton);
+            
+            containerElement.appendChild(video);
+            containerElement.appendChild(videoControls); // Aggiungi i controlli
+
+            // Autoplay the video silently
+            video.play().catch(error => {
+                console.log('Autoplay blocked:', error);
+                // Handle cases where autoplay is blocked (e.g., show a play button)
+                playPauseIcon.style.display = 'flex'; // Mostra il bottone play
+            });
+        }
     }
 });

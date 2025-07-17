@@ -446,12 +446,144 @@ nav ul li a.active { /* Active link style */
     padding: 5px;
     border-radius: 50%;
     transition: color 0.2s, background-color 0.2s;
+    z-index: 10; /* Assicurati che sia sopra il media */
 }
 
 .modal-close-button:hover {
     color: #333;
     background-color: #f0f0f0;
 }
+
+/* Stili per la Galleria nel Modal */
+.media-viewer-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 75%; /* Aspect ratio per il container del media (4:3) */
+    background-color: #000; /* Sfondo nero per i media */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Nasconde ciò che esce dai bordi */
+    border-radius: 8px;
+}
+
+.current-media-display {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; /* Indizio che si può cliccare sul media */
+}
+
+.modal-media {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Assicura che l'immagine/video sia contenuta */
+    display: block; /* Rimuovi spazi extra */
+    transition: transform 0.3s ease, max-width 0.3s ease, max-height 0.3s ease;
+}
+
+/* Stili per le frecce di navigazione nel modal */
+.modal-nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 5; /* Sopra il media */
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.modal-nav-arrow:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+/* Stili per immagine ingrandita (centrata sul click) */
+.modal-media.enlarged {
+    max-width: 100vw; /* Massima larghezza della viewport */
+    max-height: 100vh; /* Massima altezza della viewport */
+    object-fit: contain; /* Contieni ma riempi quanto possibile */
+    /* Queste proprietà sono gestite dal JS per centrare */
+}
+
+/* Stili per il modal-content quando l'immagine è ingrandita (per permettere overflow) */
+.modal-content.image-enlarged {
+    max-width: 100vw;
+    max-height: 100vh;
+    width: 100vw;
+    height: 100vh;
+    padding: 0; /* Rimuovi padding per l'immagine ingrandita */
+    background-color: rgba(0,0,0,0.8); /* Sfondo scuro quando ingrandito */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Stili per il pulsante fullscreen del video */
+.video-controls {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 6; /* Sopra il video */
+}
+
+.video-fullscreen-btn {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.video-fullscreen-btn:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* Stili per l'icona Play/Pause */
+.play-pause-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none; /* Non blocca il click sul video */
+    transition: opacity 0.3s ease;
+}
+
+.modal-media-viewer video:not(:paused) + .play-pause-overlay {
+    opacity: 0;
+}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -504,5 +636,14 @@ nav ul li a.active { /* Active link style */
         font-size: 1.5rem;
         top: 10px;
         right: 10px;
+    }
+
+    .modal-nav-arrow {
+        padding: 8px 12px;
+        font-size: 1.2rem;
+    }
+    .video-fullscreen-btn {
+        padding: 3px 8px;
+        font-size: 1rem;
     }
 }
