@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galleria Tirocinio - Youri Mazzotta</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <h1>Youri Mazzotta</h1>
+                <p>Dottore in Scienze Biologiche</p>
+            </div>
+            <ul>
+                <li><a href="index.html#about">Chi Sono</a></li>
+                <li><a href="gallery.html">Il mio lavoro in ChimeraX</a></li>
+                <li><a href="index.html#experience">Esperienza</a></li>
+                <li><a href="#immunofluorescence-gallery">Galleria Immunofluorescenza</a></li>
+                <li><a href="index.html#contact">Contatti</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="immunofluorescence-gallery" style="padding: 60px 0;">
+            <div class="container">
+                <h2>Foto Tirocinio - Immunofluorescenza Indiretta</h2>
+                <div class="protein-grid">
+                    <div class="protein-card">
+                        <h3>Anticorpi Anti-Nucleo (ANA)</h3>
+                        <div class="protein-viewer" onclick="showProteinInfo('ana_immunofluorescence')">
+                            <img src="assets/progetto4/ana.png" alt="Immagine Immunofluorescenza ANA" class="card-thumbnail">
+                            <div class="click-overlay">Clicca per visualizzare l'immagine</div>
+                        </div>
+                    </div>
+
+                    <div class="protein-card">
+                        <h3>Anticorpi Anti Muscolo Liscio (ASMA)</h3>
+                        <div class="protein-viewer" onclick="showProteinInfo('asma_immunofluorescence')">
+                            <img src="assets/progetto5/asma.png" alt="Immagine Immunofluorescenza ASMA" class="card-thumbnail">
+                            <div class="click-overlay">Clicca per visualizzare l'immagine</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="dynamic-modal" class="modal-overlay">
+        <div class="modal-content">
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
