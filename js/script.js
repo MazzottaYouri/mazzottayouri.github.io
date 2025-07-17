@@ -152,11 +152,11 @@ document.addEventListener('DOMContentLoaded', () => {
             pdb: "1hiv",
             // Ho aggiornato questa sezione per includere tutti i media (immagini e video)
             media: [
-                { type: 'image', src: 'assets/1hiv-1hvr_image1.png' },
-                { type: 'image', src: 'assets/1hiv-1hvr_image2.png' },
-                { type: 'image', src: 'assets/1hiv-1hvr_image3.png' },
-                { type: 'image', src: 'assets/1hiv-1hvr_label_image4.png' },
-                { type: 'video', src: 'assets/1hiv-1hvr_movie1.mp4' }
+                { type: 'image', src: 'assets/progetto1/1hiv-1hvr_image1.png' },
+                { type: 'image', src: 'assets/progetto1/1hiv-1hvr_image2.png' },
+                { type: 'image', src: 'assets/progetto1/1hiv-1hvr_image3.png' },
+                { type: 'image', src: 'assets/progetto1/1hiv-1hvr_label_image4.png' },
+                { type: 'video', src: 'assets/progetto1/1hiv-1hvr_movie1.mp4' }
             ],
             description: "Struttura dell'HIV-1 Proteasi comparata con una sua versione mutata. Ottimo per osservare l'asimmetria in Angstrom, e osservare come una mutazione puntiforme missenso si traduca in un cambio di amminoacido.",
             techniques: "Manipolazione 3D tramite ChimeraX",
