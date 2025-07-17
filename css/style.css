@@ -123,11 +123,11 @@ nav ul li a.active { /* Active link style */
     background: linear-gradient(rgba(102, 126, 234, 0.8), rgba(76, 81, 191, 0.8)), url('../assets/hero-bg.jpg') no-repeat center center/cover;
     color: #fff;
     text-align: center;
-    padding: 6rem 0;
+    padding: 3rem 0; /* Modificato: ridotto il padding verticale */
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 400px;
+    min-height: 250px; /* Modificato: ridotta l'altezza minima */
     position: relative; /* For parallax effect */
     overflow: hidden;
 }
@@ -696,7 +696,7 @@ nav ul li a.active { /* Active link style */
         font-size: 1rem;
     }
 
-    /* Puoi aggiungere qui eventuali piccole modifiche di layout per il card ChimeraX
-       solo se strettamente necessarie per schermi piccoli,
-       ma gli stili principali sono già globali */
+    /* Puoi aggiungere qui eventuali piccole modifiche di layout per la card ChimeraX
+        solo se strettamente necessarie per schermi piccoli,
+        ma gli stili principali sono già globali */
 }
