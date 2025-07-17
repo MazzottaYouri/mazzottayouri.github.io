@@ -271,6 +271,55 @@ nav ul li a.active { /* Active link style */
     opacity: 1;
 }
 
+/* --- Inizio Stili SPECIFICI per la card del lavoro ChimeraX --- */
+/* Questi stili ora si applicano globalmente */
+.chimera-work-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    min-height: unset;
+    cursor: pointer;
+    text-align: center;
+    background-color: #667eea; /* Sfondo blu per la card */
+    border-radius: 10px; /* Aggiungi un po' di arrotondamento ai bordi */
+    width: 80%; /* Rendi la card più stretta */
+    max-width: 400px; /* Limita la larghezza massima per schermi più grandi */
+    margin: 0 auto; /* Centra la card orizzontalmente */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Aggiungi una leggera ombra per profondità */
+}
+
+.chimera-link-block {
+    text-decoration: none; /* Rimuove la sottolineatura dal link */
+    color: inherit; /* Mantiene il colore del testo ereditato (che verrà sovrascritto dall'h3) */
+    display: flex; /* Permette di usare flexbox per allineare h3 e il "pulsante" */
+    flex-direction: column;
+    align-items: center; /* Centra gli elementi verticalmente */
+    width: 100%; /* Assicura che il blocco prenda tutta la larghezza disponibile all'interno della card */
+}
+
+.chimera-work-card h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #000; /* Colore nero per la scritta */
+}
+
+.button-simulated {
+    background-color: #667eea; /* Colore azzurro per la barretta */
+    width: 50px; /* Larghezza più stretta per la barretta */
+    height: 8px; /* Altezza della barretta azzurra */
+    border-radius: 4px; /* Angoli leggermente arrotondati per la barretta */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.chimera-link-block:hover .button-simulated {
+    background-color: #667eea; /* Colore azzurro più scuro al passaggio del mouse per la barretta */
+    transform: translateY(-2px);
+}
+/* --- Fine Stili SPECIFICI per la card del lavoro ChimeraX --- */
+
+
 /* Experience Section */
 #experience {
     padding: 5rem 0;
@@ -287,7 +336,7 @@ nav ul li a.active { /* Active link style */
 }
 
 .experience-card h3 {
-    color: #4c51bf;
+    color: #667eea;
     margin-top: 0;
     margin-bottom: 0.5rem;
 }
@@ -345,7 +394,7 @@ nav ul li a.active { /* Active link style */
 
 .contact-item span:first-child {
     font-size: 1.5rem;
-    color: #4c51bf;
+    color: #667eea;
 }
 
 #contact-form {
@@ -385,7 +434,7 @@ nav ul li a.active { /* Active link style */
 }
 
 #contact-form button:hover {
-    background-color: #4c51bf;
+    background-color: #667eea;
     transform: translateY(-2px);
 }
 
@@ -487,6 +536,29 @@ nav ul li a.active { /* Active link style */
     transition: transform 0.3s ease, max-width 0.3s ease, max-height 0.3s ease;
 }
 
+/* Stili per immagine ingrandita (centrata sul click) */
+.modal-media.enlarged {
+    max-width: 100vw; /* Massima larghezza della viewport */
+    max-height: 100vh; /* Massima altezza della viewport */
+    object-fit: contain; /* Contieni ma riempi quanto possibile */
+    /* Queste proprietà sono gestite dal JS per centrare */
+}
+
+/* Stili per il modal-content quando l'immagine è ingrandita (per permettere overflow) */
+.modal-content.image-enlarged {
+    max-width: 100vw;
+    max-height: 100vh;
+    width: 100vw;
+    height: 100vh;
+    padding: 0; /* Rimuovi padding per l'immagine ingrandita */
+    background-color: rgba(0,0,0,0.8); /* Sfondo scuro quando ingrandito */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+    box-shadow: none;
+}
+
 /* Stili per le frecce di navigazione nel modal */
 .modal-nav-arrow {
     position: absolute;
@@ -513,29 +585,6 @@ nav ul li a.active { /* Active link style */
 
 .right-arrow {
     right: 10px;
-}
-
-/* Stili per immagine ingrandita (centrata sul click) */
-.modal-media.enlarged {
-    max-width: 100vw; /* Massima larghezza della viewport */
-    max-height: 100vh; /* Massima altezza della viewport */
-    object-fit: contain; /* Contieni ma riempi quanto possibile */
-    /* Queste proprietà sono gestite dal JS per centrare */
-}
-
-/* Stili per il modal-content quando l'immagine è ingrandita (per permettere overflow) */
-.modal-content.image-enlarged {
-    max-width: 100vw;
-    max-height: 100vh;
-    width: 100vw;
-    height: 100vh;
-    padding: 0; /* Rimuovi padding per l'immagine ingrandita */
-    background-color: rgba(0,0,0,0.8); /* Sfondo scuro quando ingrandito */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0;
-    box-shadow: none;
 }
 
 /* Stili per il pulsante fullscreen del video */
@@ -646,49 +695,8 @@ nav ul li a.active { /* Active link style */
         padding: 3px 8px;
         font-size: 1rem;
     }
-   /* Stili specifici per la card ChimeraX Work */
-.chimera-work-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    min-height: unset;
-    cursor: pointer;
-    text-align: center;
-    background-color: #007bff; /* Sfondo blu per la card */
-    border-radius: 10px; /* Aggiungi un po' di arrotondamento ai bordi */
-    width: 80%; /* Rendi la card più stretta (regola il valore a seconda delle tue esigenze) */
-    max-width: 400px; /* Limita la larghezza massima per schermi più grandi */
-    margin: 0 auto; /* Centra la card orizzontalmente */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Aggiungi una leggera ombra per profondità */
-}
 
-.chimera-link-block {
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
-.chimera-work-card h3 {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    color: #000; /* Colore nero per la scritta */
-}
-
-.button-simulated {
-    background-color: #4CAF50; /* Puoi cambiare questo colore se vuoi che la barretta sia diversa dal blu di sfondo */
-    width: 50px;
-    height: 8px;
-    border-radius: 4px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.chimera-link-block:hover .button-simulated {
-    background-color: #45a049; /* Colore più scuro al passaggio del mouse per la barretta */
-    transform: translateY(-2px);
-}
+    /* Puoi aggiungere qui eventuali piccole modifiche di layout per il card ChimeraX
+       solo se strettamente necessarie per schermi piccoli,
+       ma gli stili principali sono già globali */
 }
